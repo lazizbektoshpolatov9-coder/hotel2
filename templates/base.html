@@ -1,0 +1,8 @@
+<!doctype html><html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Registon Mehmonxonasi</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<header><a class="logo" href="/">Registon</a><nav>
+<a href="/">Xonalar</a><a href="/bookings">Bronlarim</a><a href="/services">Xizmatlar</a>
+<a href="/menu">Oshxona</a><a href="/orders">Buyurtmalar</a></nav></header>
+<main>{% for m in get_flashed_messages() %}<p class="flash">{{ m }}</p>{% endfor %}
+{% block c %}{% endblock %}</main><footer>Registon Mehmonxonasi · 24/7 resepshn</footer></body></html>

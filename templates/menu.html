@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block c %}
+<h1>Oshxona</h1><p class="note">Taomlar mehmonxona bo'ylab xonangizgacha yetkazib beriladi.</p>
+<form method="post" class="col">
+<label>Xona raqami <input type="number" name="room" min="101" max="405" required></label>
+{% for k,(n,p) in menu %}<label class="dish">{{n}} — {{ '{:,}'.format(p) }} so'm <input type="number" name="q{{k}}" min="0" max="20" value="0"></label>{% endfor %}
+<button>Buyurtma berish</button></form>{% endblock %}

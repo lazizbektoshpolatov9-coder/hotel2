@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block c %}
+<h1>{{ r.number }}-xona</h1><p>{{ r.floor }}-qavat, {{ r.type }}, {{ '{:,}'.format(r.price) }} so'm / kecha</p>
+<p class="note">Bronni bekor qilsangiz, to'lovning 50% qaytariladi.</p>
+<form class="col" method="post">
+<label>Ism <input name="name" required></label>
+<label>Telefon <input name="phone" required placeholder="+998..."></label>
+<label>Kirish <input type="date" name="cin" min="{{today}}" required></label>
+<label>Chiqish <input type="date" name="cout" min="{{today}}" required></label>
+<button>Bron qilish</button></form>{% endblock %}

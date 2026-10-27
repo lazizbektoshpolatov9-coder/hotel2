@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block c %}
+<h1>Bronlarim</h1>
+<form class="row" method="get"><label>Telefon raqam <input name="phone" value="{{phone}}" required></label><button>Topish</button></form>
+{% for b in bs %}<div class="room"><b class="num">{{ b.room }}</b>
+<span>{{ b.cin }} → {{ b.cout }}</span><span>Jami: {{ '{:,}'.format(b.total) }} so'm</span>
+{% if b.status=='faol' %}<form method="post" action="/cancel/{{b.id}}" onsubmit="return confirm('Bekor qilsangiz 50% qaytariladi. Davom etasizmi?')"><button class="danger">Bekor qilish</button></form>
+{% else %}<em>Bekor qilingan · qaytarildi: {{ '{:,}'.format(b.refund) }} so'm</em>{% endif %}</div>
+{% else %}{% if phone %}<p>Bu raqam bo'yicha bron topilmadi.</p>{% endif %}{% endfor %}{% endblock %}

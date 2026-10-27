@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block c %}
+<h1>Xonalar</h1>
+<form class="row" method="get">
+<label>Qavat <select name="floor"><option value="">Hammasi</option>
+{% for f in range(1,5) %}<option value="{{f}}" {{'selected' if floor==f|string}}>{{f}}-qavat</option>{% endfor %}</select></label>
+<label>Kirish <input type="date" name="cin" value="{{cin}}" min="{{today}}"></label>
+<label>Chiqish <input type="date" name="cout" value="{{cout}}" min="{{today}}"></label>
+<button>Qidirish</button></form>
+<div class="grid">{% for r in rooms %}
+<div class="room {{'busy' if r.busy}}"><b class="num">{{ r.number }}</b>
+<span>{{ r.floor }}-qavat · {{ r.type }}</span>
+<span>{{ '{:,}'.format(r.price) }} so'm / kecha</span>
+{% if r.busy %}<em>Band</em>{% else %}<a class="btn" href="/book/{{ r.number }}">Bron qilish</a>{% endif %}</div>
+{% endfor %}</div>{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block c %}
+<h1>Yetkazib berish holati</h1>
+{% for o in orders %}<div class="room"><b class="num">{{ o.room }}</b><span>{{ o.items }}</span>
+<span>{{ '{:,}'.format(o.total) }} so'm</span>
+<div class="steps">{% for s in stages %}<i class="{{'on' if loop.index0<=o.stage}}">{{s}}</i>{% endfor %}</div>
+{% if o.stage<3 %}<form method="post" action="/orders/{{o.id}}/next"><button>Keyingi bosqich (xodim)</button></form>{% endif %}</div>
+{% else %}<p>Buyurtmalar yo'q. <a href="/menu">Oshxonaga o'ting</a>.</p>{% endfor %}{% endblock %}

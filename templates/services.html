@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block c %}
+<h1>Mehmonxona xizmatlari</h1>
+<form class="col" method="post">
+<label>Xona raqami <input type="number" name="room" min="101" max="405" required></label>
+<label>Xizmat <select name="service">{% for n,p in services %}<option value="{{n}}">{{n}} — {{ 'bepul' if p==0 else '{:,} so\'m'.format(p) }}</option>{% endfor %}</select></label>
+<button>Buyurtma berish</button></form>
+<h2>So'nggi so'rovlar</h2>
+{% for q in reqs %}<p>{{ q.room }}-xona: {{ q.service }}</p>{% else %}<p>Hozircha so'rov yo'q.</p>{% endfor %}{% endblock %}
